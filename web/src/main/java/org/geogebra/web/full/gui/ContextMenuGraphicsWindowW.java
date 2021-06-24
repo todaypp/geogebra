@@ -91,6 +91,7 @@ public class ContextMenuGraphicsWindowW extends ContextMenuGeoElementW
 			}
 			addRulingMenuItem(ot);
 			addBackgroundMenuItem();
+			addSnapToGridMenuItem();
 		}
 
 		addMiProperties("DrawingPad", ot);
