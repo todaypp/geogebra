@@ -10,6 +10,7 @@
     <artifactId>editor-web</artifactId>
     <packaging>war</packaging>
 
+
     <dependencies>
         <dependency>
             <groupId>hello-world-reactor</groupId>
@@ -26,7 +27,14 @@
             <artifactId>gwt-widgets</artifactId>
             <version>202203291</version>
         </dependency>
+        <dependency>
+            <groupId>org.gwtproject.resources</groupId>
+            <artifactId>gwt-resources-processor</artifactId>
+            <version>HEAD-SNAPSHOT</version>
+        </dependency>
+
     </dependencies>
+
     <build>
         <pluginManagement>
             <plugins>
@@ -50,8 +58,19 @@
                         <goals>
                             <goal>build</goal>
                         </goals>
+                        <configuration>
+                            <dependencyReplacements>
+                                <dependencyReplacement>
+                                    <original>xerces:xerces-impl</original>
+                                </dependencyReplacement>
+                                <dependencyReplacement>
+                                    <original>xml-apis:xml-apis</original>
+                                </dependencyReplacement>
+                            </dependencyReplacements>
+                        </configuration>
                     </execution>
                 </executions>
+
             </plugin>
         </plugins>
     </build>

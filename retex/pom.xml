@@ -13,5 +13,22 @@
         <module>renderer-web</module>
         <module>renderer-base</module>
     </modules>
+    <repositories>
+        <repository>
+            <id>Central</id>
+            <url>https://repo1.maven.org/maven2/</url>
+        </repository>
+        <repository>
+            <id>reposilite-repository</id>
+            <name>GeoGebra Repository</name>
+            <url>https://dev.geogebra.org/maven2</url>
+        </repository>
+
+        <repository>
+        <id>sonatype-repository</id>
+        <name>Sonatype Repository</name>
+        <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+        </repository>
+    </repositories>
 
 </project>
