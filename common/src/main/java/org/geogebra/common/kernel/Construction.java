@@ -2477,11 +2477,7 @@ public class Construction {
 			return false;
 		}
 
-		if (includeDummies && casDummies.contains(label)) {
-			return false;
-		}
-
-		return true;
+		return !includeDummies || !casDummies.contains(label);
 	}
 
 	/**

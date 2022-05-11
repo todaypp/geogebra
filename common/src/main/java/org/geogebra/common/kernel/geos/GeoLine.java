@@ -1625,13 +1625,7 @@ public class GeoLine extends GeoVec3D implements Path, Translateable,
 	 * @return the line has fixed slope (e.g. an axis or defined by an equation)
 	 */
 	public boolean hasFixedSlope() {
-		if (this instanceof GeoAxis) {
-			return true;
-		}
-		if (this.getParentAlgorithm() == null) {
-			return true;
-		}
-		return false;
+		return (this instanceof GeoAxis) || this.getParentAlgorithm() == null;
 	}
 
 	@Override
@@ -1989,11 +1983,7 @@ public class GeoLine extends GeoVec3D implements Path, Translateable,
 	}
 
 	private boolean isEquationFormEnforced() {
-		if (cons.getApplication().getConfig().getEnforcedLineEquationForm() == -1) {
-			return false;
-		} else {
-			return true;
-		}
+		return cons.getApplication().getConfig().getEnforcedLineEquationForm() != -1;
 	}
 
 	private void setModeWithImplicitEquationAsDefault(int mode) {

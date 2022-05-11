@@ -174,10 +174,7 @@ public class CASTableControllerW extends CASTableCellController implements
 	public boolean checkHeaderClick(HumanInputEvent<?> event) {
 		CASTableW cw = view.getConsoleTable();
 		GPoint gp = cw.getPointForEvent(event);
-		if (gp != null && gp.x == 0) {
-			return true;
-		}
-		return false;
+		return gp != null && gp.x == 0;
 	}
 
 	/**
@@ -192,19 +189,19 @@ public class CASTableControllerW extends CASTableCellController implements
 			return false;
 		}
 		CASTableCellW ctw = cw.getCasCellForEvent(event);
-		Widget output = ctw.getOutputWidget();
 		int x = event.getNativeEvent().getClientX();
 		int y = event.getNativeEvent().getClientY();
-		if ((output.getAbsoluteLeft() <= x)
-				&& (output.getAbsoluteLeft() + output.getOffsetWidth() >= x)
-				&& (output.getAbsoluteTop() <= y)
-				&& (output.getAbsoluteTop() + output.getOffsetHeight() >= y)) {
-			// this is an "answer" click!
-			return false;
-		}
 		// supposing there is nothing else just the
 		// "header" click, "answer" click or "question" click
-		return true;
+		return !isAnswerClick(ctw, x, y);
+	}
+
+	private boolean isAnswerClick(CASTableCellW ctw, int x, int y) {
+		Widget output = ctw.getOutputWidget();
+		return (output.getAbsoluteLeft() <= x)
+				&& (output.getAbsoluteLeft() + output.getOffsetWidth() >= x)
+				&& (output.getAbsoluteTop() <= y)
+				&& (output.getAbsoluteTop() + output.getOffsetHeight() >= y);
 	}
 
 	@Override

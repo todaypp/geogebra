@@ -1847,10 +1847,7 @@ public class GeoCasCell extends GeoElement
 			return false;
 		}
 		String name = evalVE.getTopLevelCommand().getName();
-		if ("LeftSide".equals(name) || "RightSide".equals(name)) {
-			return true;
-		}
-		return false;
+		return "LeftSide".equals(name) || "RightSide".equals(name);
 	}
 
 	private void setEquationMode() {

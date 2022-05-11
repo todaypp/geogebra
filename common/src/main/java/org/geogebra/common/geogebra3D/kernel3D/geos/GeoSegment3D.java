@@ -214,11 +214,7 @@ public class GeoSegment3D extends GeoCoordSys1D implements GeoSegmentND {
 			return false;
 		}
 		double l = getLength();
-		if (d > l * l + eps) {
-			return false;
-		}
-
-		return true;
+		return d <= l * l + eps;
 	}
 
 	@Override

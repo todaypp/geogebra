@@ -172,12 +172,7 @@ public class IneqTree {
 				&& this.ineq.getType() == IneqType.INEQUALITY_INVALID) {
 			return false;
 		}
-		if (left != null && !left.isValid()) {
-			return false;
-		}
-		if (left != null && !right.isValid()) {
-			return false;
-		}
-		return true;
+		return (left == null || left.isValid())
+				&& (right == null || right.isValid());
 	}
 }

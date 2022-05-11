@@ -138,12 +138,9 @@ public class DrawInequality1Var extends SetDrawable {
 
 	// e.g. -x
 	private static boolean isVariableNegated(ExpressionNode expr) {
-		if (expr.getOperation().equals(Operation.MULTIPLY)
+		return expr.getOperation().equals(Operation.MULTIPLY)
 				&& DoubleUtil.isEqual(expr.getLeft().evaluateDouble(), -1)
-				&& expr.getRight() instanceof FunctionVariable) {
-			return true;
-		}
-		return false;
+				&& expr.getRight() instanceof FunctionVariable;
 	}
 
 	/**

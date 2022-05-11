@@ -1842,11 +1842,7 @@ public abstract class EuclidianView3D extends EuclidianView
 		}
 
 		val = p.getZ();
-		if (val < getZmin() || val > getZmax()) {
-			return false;
-		}
-
-		return true;
+		return val >= getZmin() && val <= getZmax();
 	}
 
 	/**
@@ -4324,13 +4320,8 @@ public abstract class EuclidianView3D extends EuclidianView
 			return true;
 		}
 
-		if (DoubleUtil.isGreater(z1, getZmax(), tolerance)
-				&& DoubleUtil.isGreater(z2, getZmax(), tolerance)) {
-			return true;
-		}
-
-		// close to screen
-		return false;
+		return DoubleUtil.isGreater(z1, getZmax(), tolerance)
+				&& DoubleUtil.isGreater(z2, getZmax(), tolerance);
 	}
 
 	@Override

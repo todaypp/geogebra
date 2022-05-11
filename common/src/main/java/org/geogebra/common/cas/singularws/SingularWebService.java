@@ -105,13 +105,7 @@ public class SingularWebService {
 	 * @return true if SingularWS is available
 	 */
 	public boolean isAvailable() {
-		if (available == null) {
-			return false;
-		}
-		if (available) {
-			return true;
-		}
-		return false;
+		return available != null && available;
 	}
 
 	/**
@@ -124,10 +118,7 @@ public class SingularWebService {
 	}
 
 	private String speed() {
-		if (isFast()) {
-			return "fast";
-		}
-		return "slow";
+		return isFast() ? "fast" : "slow";
 	}
 
 	/**
@@ -242,12 +233,7 @@ public class SingularWebService {
 			return;
 		}
 		Log.debug("Trying to enable SingularWS connection");
-		boolean tc = testConnection();
-		if (tc) {
-			this.available = true;
-		} else {
-			this.available = false;
-		}
+		this.available = testConnection();
 	}
 
 	/**

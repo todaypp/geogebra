@@ -619,12 +619,8 @@ public class ExpressionNode extends ValidExpression
 			return true;
 		}
 
-		if ((right != null) && right.isExpressionNode()
-				&& ((ExpressionNode) right).includesFreehandOrData()) {
-			return true;
-		}
-
-		return false;
+		return (right != null) && right.isExpressionNode()
+				&& ((ExpressionNode) right).includesFreehandOrData();
 	}
 
 	/**
@@ -873,12 +869,8 @@ public class ExpressionNode extends ValidExpression
 				&& ((ExpressionNode) left).containsCasEvaluableFunction()) {
 			return true;
 		}
-		if ((right instanceof ExpressionNode)
-				&& ((ExpressionNode) right).containsCasEvaluableFunction()) {
-			return true;
-		}
-
-		return false;
+		return (right instanceof ExpressionNode)
+				&& ((ExpressionNode) right).containsCasEvaluableFunction();
 	}
 
 	/**
@@ -894,12 +886,8 @@ public class ExpressionNode extends ValidExpression
 				&& ((ExpressionNode) left).containsGeoFunctionNVar()) {
 			return true;
 		}
-		if ((right instanceof ExpressionNode)
-				&& ((ExpressionNode) right).containsGeoFunctionNVar()) {
-			return true;
-		}
-
-		return false;
+		return (right instanceof ExpressionNode)
+				&& ((ExpressionNode) right).containsGeoFunctionNVar();
 	}
 
 	/**
@@ -1191,10 +1179,8 @@ public class ExpressionNode extends ValidExpression
 		if (leaf) {
 			if (left.isExpressionNode()) {
 				return ((ExpressionNode) left).hasOperations();
-			} else if (left instanceof MyVecNDNode) {
-				return true;
 			} else {
-				return false;
+				return left instanceof MyVecNDNode;
 			}
 		}
 
@@ -3408,11 +3394,8 @@ public class ExpressionNode extends ValidExpression
 				&& ((ExpressionNode) left).isStringAddition()) {
 			return true;
 		}
-		if (right instanceof ExpressionNode
-				&& ((ExpressionNode) right).isStringAddition()) {
-			return true;
-		}
-		return false;
+		return right instanceof ExpressionNode
+				&& ((ExpressionNode) right).isStringAddition();
 	}
 
 	/**

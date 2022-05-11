@@ -555,10 +555,7 @@ public class GeoPolyLine extends GeoElement implements GeoNumberValue,
 
 	@Override
 	public boolean isVertexCountFixed() {
-		if (getParentAlgorithm().getInput().length < 3) {
-			return false;
-		}
-		return true;
+		return getParentAlgorithm().getInput().length >= 3;
 	}
 
 	@Override
