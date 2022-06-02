@@ -218,9 +218,6 @@ public class OpenFileViewMebis extends HeaderFileView
 			loginOperation.getResourcesAPI()
 					.getUsersAndSharedMaterials(this.allMaterialsCB,
 							order, offset);
-		} else if (!loginOperation.getModel().isLoginStarted()) {
-			loginOperation.getResourcesAPI()
-					.getFeaturedMaterials(this.ggtMaterialsCB);
 		}
 	}
 
