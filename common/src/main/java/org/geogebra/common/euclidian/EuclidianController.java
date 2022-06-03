@@ -6571,7 +6571,7 @@ public abstract class EuclidianController implements SpecialPointsListener {
 					if (geo != null && !geo.isGeoButton()) {
 						if (isSpecialPreviewPointFound(hits)) {
 							previewPointHits = getPreviewSpecialPointHits(hits);
-						} else {
+						} else if (!geo.isSelected() || selection.getSelectedGeos().size() != 1) {
 							selection.clearSelectedGeos(false);
 							selection.addSelectedGeoWithGroup(geo);
 						}
@@ -8154,7 +8154,7 @@ public abstract class EuclidianController implements SpecialPointsListener {
 			}
 		}
 
-		if (geo != selection.getFocusedGroupElement()) {
+		if (geo != selection.getFocusedGroupElement() && app.isWhiteboardActive()) {
 			selection.setFocusedGroupElement(null);
 			view.setFocusedGroupGeoBoundingBox(null);
 		}
